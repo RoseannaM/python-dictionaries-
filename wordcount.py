@@ -16,15 +16,20 @@ def count_words(filename):
     # split text based on spaces (will generate a list)
     words_in_text = []
 
+    # initiate empty dictionary
+    word_count_dict = {}
+
     for line in the_text:
         words_in_text.extend(line.rstrip().split(" "))
-
-    # initiate empty dictionary
-
+   
     # iterate over list, see if in dictionary, if not initiate with count of zero
     # increment by one
+    for word in words_in_text:
+        word_count_dict[word] = word_count_dict.get(word, 0) + 1
 
     # print all words with counts in dictionary
-
+    for key, value in word_count_dict.items():
+        print(f"{key} {value}")
+    
     #close file
     the_text.close()
